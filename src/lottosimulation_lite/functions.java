@@ -5,11 +5,24 @@
  */
 package lottosimulation_lite;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  *
  * @author c.karadag
  */
 public class functions {
+
     static int[] prüfe(int az, int[] playerzahl, int wievielerichtig) {
         //hier wird geprüft wieviele Zahlen richtig sind 
         Lottosimulation_lite.lottozahlenziehe lottozahlen = new Lottosimulation_lite.lottozahlenziehe();
@@ -40,5 +53,36 @@ public class functions {
         }
         return vec;
     }
-    
+
+    static void schreibe(int durchlaeufe, int richtige, int[] allezahlen, String durchschnitt) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter df;
+        df = DateTimeFormatter.ISO_LOCAL_DATE;
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH-mm-ss");
+        String dateiname = "erg_" + durchlaeufe + "_" + richtige + "_" + df.format(now) + "_uhr_" + sdf.format(cal.getTime()) + ".txt";
+
+        File f = new File(dateiname);
+        try {
+            FileWriter w = new FileWriter(f, true);
+
+            for (int i = 0; i < allezahlen.length; i++) {
+                String zahl = Integer.toString(allezahlen[i]);
+                w.write(zahl);
+                w.write(System.getProperty("line.separator"));
+                w.flush();
+            }
+            w.write("--------------------------------------------------------");
+            w.write(System.getProperty("line.separator"));
+            w.write(durchschnitt);
+            w.write(System.getProperty("line.separator"));
+            w.write("--------------------------------------------------------");
+            w.flush();
+            w.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

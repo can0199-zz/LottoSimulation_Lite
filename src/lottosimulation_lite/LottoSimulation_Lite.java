@@ -5,6 +5,7 @@
  */
 package lottosimulation_lite;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -45,7 +46,9 @@ public class LottoSimulation_Lite {
             durchschnitt = durchschnitt + allezahlen[i];
         }
         durchschnitt = durchschnitt / allezahlen.length;
-        System.out.printf("Der Durchschnitt liegt bei: %.0f\n", durchschnitt);
+        System.out.printf("Der Durchschnitt liegt bei: %f\n", durchschnitt);
+        String d = String.format("Der Durchschnitt liegt bei: %f\n", durchschnitt);
+        functions.schreibe(az,richtige,allezahlen,d);
 
     }
 
