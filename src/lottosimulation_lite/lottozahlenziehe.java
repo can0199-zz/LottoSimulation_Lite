@@ -35,11 +35,6 @@ public class lottozahlenziehe {
         lottozahlen[5] = cache;
         return lottozahlen;
     }
-    //hier wird die zuffalszahl gezogen und übergeben
-    public int ziehesuperzahl(){
-        this.superzahl = z.getSuperzahl();
-        return superzahl;
-    }
     //diese Funktion überprüft ein Array das übergeben wird ob es gleiche Werte hat und liefert ein boolean Wert zurück
     public static boolean pruefe(int[] array) {
         Arrays.sort(array);
