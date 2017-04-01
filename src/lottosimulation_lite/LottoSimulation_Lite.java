@@ -5,7 +5,6 @@
  */
 package lottosimulation_lite;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -38,7 +37,7 @@ public class LottoSimulation_Lite {
         int richtige = sc.nextInt();
         System.out.println("das Ergebniss wird analysiert\n");
 
-        int[] allezahlen = functions.prüfe(az, playerzahl, richtige);
+        int[] allezahlen = functions.vergleich(az, playerzahl, richtige);
         sc.close();
         //durchschnitt wird errechnet
         double durchschnitt = 0;

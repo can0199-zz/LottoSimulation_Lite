@@ -1,31 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lottosimulation_lite;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 
-/**
- *
- * @author c.karadag
- */
+
 public class functions {
 
-    static int[] prüfe(int az, int[] playerzahl, int wievielerichtig) {
+    static int[] vergleich(int az, int[] playerzahl, int wievielerichtig) {
         //hier wird geprüft wieviele Zahlen richtig sind 
-        Lottosimulation_lite.lottozahlenziehe lottozahlen = new Lottosimulation_lite.lottozahlenziehe();
+        lottozahlenziehe lottozahlen = new lottozahlenziehe();
         int[] vec = new int[az];
         for (int i = 0; i < az; i++) {
             boolean srichtige = false;

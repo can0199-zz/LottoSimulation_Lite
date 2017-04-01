@@ -1,4 +1,4 @@
-package Lottosimulation_lite;
+package lottosimulation_lite;
 
 import java.util.Random;
 
